@@ -1,15 +1,9 @@
-# Exclude virtual environments
+# virtual env, cache, git, env
 venv/
-
-# Exclude Python cache
 __pycache__/
-
-# Exclude Git folder
 .git/
-
-# Exclude environment variables
 .env
 
-# Exclude database files (optional if you don’t want jobs.db and jobs.sql in GitHub)
+# optional: local db dumps
 *.db
 *.sql
