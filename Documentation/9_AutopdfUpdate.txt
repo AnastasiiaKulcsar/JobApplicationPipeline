@@ -1,0 +1,19 @@
+python convert_and_export.py `
+  --resume-md ".\docs\greenhouse_stripe_5922987_resume.md" `
+  --cover-md  ".\docs\greenhouse_stripe_5922987_cover.md" `
+  --job-id "greenhouse:stripe:5922987"
+
+. .\set_app_files.ps1
+python cli.py apply "greenhouse:stripe:5922987"
+
+
+
+---------------------------------------------
+# Make sure your PDFs are set (ATS requires pdf/doc/docx/rtf)
+. .\set_app_files.ps1   # if you used the converter script earlier
+
+# Run with randomization ON (default). You can also set a custom seed for reproducible values:
+python apply_assist.py "greenhouse:stripe:5922987" --seed 123
+
+# If you want to disable randomization for a run:
+python apply_assist.py "greenhouse:stripe:5922987" --no-random

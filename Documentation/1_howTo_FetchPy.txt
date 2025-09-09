@@ -1,0 +1,14 @@
+# 1) Go to your project
+cd C:\Users\anast\Downloads\job-automation
+
+# 2) Activate your env (pick ONE of these)
+.\venv\Scripts\activate          # if you used python -m venv
+# or
+conda activate job-automation     # if you created a conda env
+
+# 3) Run it
+python fetch_jobs.py
+
+# 4) Peek at results
+sqlite3 jobs.db ".tables"
+sqlite3 jobs.db "SELECT id, company, title, posted_at FROM jobs ORDER BY posted_at DESC LIMIT 10;"

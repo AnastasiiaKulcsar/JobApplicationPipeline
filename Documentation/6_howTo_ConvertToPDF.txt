@@ -1,0 +1,24 @@
+3) Run it for your two files
+python convert_and_export.py `
+  --resume-md "C:\Users\anast\Downloads\job-automation\docs\greenhouse_stripe_5922987_resume.md" `
+  --cover-md  "C:\Users\anast\Downloads\job-automation\docs\greenhouse_stripe_5922987_cover.md" `
+  --job-id "greenhouse:stripe:5922987" `
+  --db "C:\Users\anast\Downloads\job-automation\jobs.db"
+
+
+This will:
+
+create ..._resume.pdf and ..._cover.pdf next to your .md files,
+
+write set_app_files.ps1 and .env in your project root,
+
+update the applications table for that job_id to point to the new PDFs.
+
+Load the env vars into your current terminal
+. .\set_app_files.ps1
+# verify
+$env:RESUME_FILE
+$env:COVER_FILE
+
+
+Now your existing apply_assist.py will pick up those PDFs (it prefers RESUME_FILE / COVER_FILE when present, and they’re valid .pdf).

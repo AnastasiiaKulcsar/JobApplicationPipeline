@@ -1,0 +1,18 @@
+# 1) Initialize DB (once)
+python cli.py initdb
+
+# 2) Fetch + score
+python cli.py refresh --gh stripe --gh notion --lever datadog --lever cloudflare
+
+# 3) Top matches
+python cli.py top
+
+# 4) Generate .md docs for a job
+python cli.py generate "greenhouse:stripe:5922987"
+
+# 4½) Convert to PDF + update DB
+python cli.py convert "greenhouse:stripe:5922987"
+#   (or skip this and do the one-shot in step 5)
+
+# 5) Apply **using the PDFs** (one-shot)
+python cli.py apply-pdf "<job_id>"

@@ -1,0 +1,20 @@
+How to run it
+
+From your project folder with your environment active:
+
+python score_jobs.py
+
+
+Verify scores got written:
+
+sqlite3 jobs.db "SELECT company, title, score FROM jobs ORDER BY score DESC LIMIT 15;"
+
+(Optional) Shortlist to a view
+
+If you want a saved shortlist view:
+
+sqlite3 jobs.db "CREATE VIEW IF NOT EXISTS shortlist AS SELECT id, company, title, location, url, posted_at, score FROM jobs WHERE score >= 50 ORDER BY score DESC;"
+sqlite3 jobs.db "SELECT * FROM shortlist LIMIT 20;"
+
+
+If you share your skills (or what you want weighted more), I can tune the MY_SKILLS and weights to match you better.

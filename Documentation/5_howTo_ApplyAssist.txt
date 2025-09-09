@@ -1,0 +1,6 @@
+PopwerShell:
+1) Prepare docs
+$env:RESUME_FILE="C:\Users\anast\Documents\resume.pdf"
+$env:COVER_FILE="C:\Users\anast\Documents\cover_letter.pdf"
+2)Run
+python apply_assist.py "greenhouse:stripe:5922987"

@@ -1,0 +1,7 @@
+httpx
+beautifulsoup4
+rapidfuzz
+sqlite-utils
+typer
+playwright
+openai

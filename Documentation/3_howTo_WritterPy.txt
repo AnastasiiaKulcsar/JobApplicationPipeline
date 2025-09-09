@@ -1,0 +1,47 @@
+How to use it
+
+USAGE
+python writer.py "greenhouse:stripe:5922987"
+# or
+python writer.py write "greenhouse:stripe:5922987"
+
+
+
+
+
+___________________________________________________
+
+
+
+Activate your env and be in your project folder:
+
+cd C:\Users\anast\Downloads\job-automation
+.\venv\Scripts\activate   # or: conda activate job-automation
+
+
+Set API key (one time per machine):
+
+setx OPENAI_API_KEY "sk-your-key"
+# then open a NEW terminal; or for current session:
+$env:OPENAI_API_KEY="sk-your-key"
+
+
+Pick a job id from your DB (example query):
+
+sqlite3 jobs.db "SELECT id, company, title, score FROM jobs ORDER BY score DESC LIMIT 10;"
+
+
+Generate materials:
+
+python writer.py write "greenhouse:stripe:1234567"
+
+
+You’ll get two files in docs/:
+
+<jobid>_resume.md
+
+<jobid>_cover.md
+
+Log entry goes into applications:
+
+sqlite3 jobs.db "SELECT * FROM applications ORDER BY applied_at DESC LIMIT 5;"
